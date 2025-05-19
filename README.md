@@ -23,22 +23,23 @@ This project is designed to demonstrate SQL skills and techniques typically used
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
-CREATE DATABASE p1_retail_db;
+create database project1;
+use project1;
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
-);
+CREATE TABLE retail_sale
+	(
+	transactions_id INT PRIMARY KEY,
+	sale_date DATE,
+	sale_time TIME,
+	customer_id	INT,
+	gender VARCHAR(15),
+	age	INT,
+	category VARCHAR(20),
+	quantiy	INT,
+	price_per_unit FLOAT,
+	cogs FLOAT,
+	total_sale FLOAT 
+	);
 ```
 
 ### 2. Data Exploration & Cleaning
@@ -212,32 +213,13 @@ This project serves as a comprehensive introduction to SQL for data analysts, co
 3. **Run the Queries**: Use the SQL queries provided in the `analysis_queries.sql` file to perform your analysis.
 4. **Explore and Modify**: Feel free to modify the queries to explore different aspects of the dataset or answer additional business questions.
 
-## Author - Zero Analyst
+## Author - Md. Liton Hossain
 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
 
-### Stay Updated and Join the Community
-
-For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
 
 
-```sql
-WITH hourly_sale
-AS
-(SELECT *,
-	CASE
-		WHEN HOUR(sale_time)<12 THEN 'Morning' 
-        WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
-	END AS shift
-FROM retail_sale)
-SELECT 
-	COUNT(DISTINCT transactions_id) as total_number_order, 
-    shift
-FROM 
-hourly_sale
-GROUP BY shift;
-```
+
 
 
 
