@@ -220,6 +220,29 @@ This project is part of my portfolio, showcasing the SQL skills essential for da
 
 For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
 
+
+```sql
+WITH hourly_sale
+AS
+(SELECT *,
+	CASE
+		WHEN HOUR(sale_time)<12 THEN 'Morning' 
+        WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+        ELSE 'Evening'
+	END AS shift
+FROM retail_sale)
+SELECT 
+	COUNT(DISTINCT transactions_id) as total_number_order, 
+    shift
+FROM 
+hourly_sale
+GROUP BY shift;
+```
+
+
+
+
+
 - **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
 - **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
 - **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
